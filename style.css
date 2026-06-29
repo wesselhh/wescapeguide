@@ -781,8 +781,56 @@ a.tour-card-link:focus-visible, .btn:focus-visible, .btn-enquire:focus-visible {
     .dropdown-menu a { text-align: center; padding: 12px 20px !important; font-size: 0.95rem !important; color: rgba(255, 255, 255, 0.7) !important; }
 
     /* --- Layout & Vertical Pacing Safety Adapters --- */
-    .hero { min-height: 520px; align-items: center !important; justify-content: center !important; text-align: center !important; padding-top: 80px !important; }
-    .hero-content { transform: translateY(-24px) !important; max-width: 100% !important; background-color: rgba(0, 0, 0, 0.55) !important; padding: 25px !important; border-radius: 8px; }
+    .hero { 
+        min-height: 520px; 
+        padding-top: 100px !important; /* Added safe breathing room below your fixed nav menu */
+        
+        /* Flexbox configuration modified to cleanly anchor content boxes to the top */
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding-bottom: 32px !important; 
+        box-sizing: border-box !important;
+    }
+
+    /* Neutralize asymmetric desktop rules on individual tour pages for a consistent mobile experience */
+    .city-hero, .peninsula-hero, .winelands-hero, .hero-west-coast, .hero-garden-route, .overberg-hero {
+        justify-content: flex-start !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        padding-top: 100px !important;
+    }
+
+    /* Target the base structure variant specifically for parallax asset normalization on iOS */
+    .hero-home {
+        background-attachment: scroll !important; /* Resolves iOS zoom glitch */
+        background-size: cover !important;
+        background-position: 50% 13% !important; /* Matches standard landscape framing precisely */
+    }
+
+    /* Unified Content Boxes: Forces uniformity across structural pages, sub-tours, and legal pages */
+    .hero-content,
+    .city-hero .hero-content, 
+    .peninsula-hero .hero-content, 
+    .winelands-hero .hero-content, 
+    .hero-west-coast .hero-content, 
+    .hero-garden-route .hero-content,
+    .overberg-hero .hero-content,
+    .hero section + div, 
+    .hero [style*="transform"] { /* Smart fallback: neutralizes inline layout shifts on terms/privacy pages */
+        width: 92% !important;
+        max-width: 440px !important; 
+        background-color: rgba(0, 0, 0, 0.6) !important; /* Darkened slightly to maintain high contrast text readability over mobile image focal points */
+        padding: 25px !important; 
+        border-radius: 8px !important; 
+        margin: 0 auto !important;
+        transform: none !important; /* Erases desktop translations and inline transforms completely on mobile */
+    }
+
     .profile-split-block { grid-template-columns: 1fr; gap: 0; }
     .profile-split-text { padding: 30px 20px; }
     .profile-split-media { height: 320px; }
