@@ -283,32 +283,16 @@ header {
     font-weight: 600;
 }
 
-/* --- Unified Premium Hero Engine (Decoupled Parallax Mechanics) --- */
-.hero-parallax-wrapper {
-    position: relative;
+/* --- Unified Premium Hero Engine --- */
+.hero {
     height: 100vh;
     min-height: 600px;
-    overflow: hidden;
-}
-
-.hero-parallax-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-attachment: fixed;
-    z-index: 1;
-}
-
-.hero {
-    position: relative;
-    height: 100%;
     display: flex;
     color: var(--white);
+    background-size: cover;
+    background-attachment: fixed;
     padding: 0 20px;
-    z-index: 2;
+    position: relative;
     
     /* Global Core Default: Center Alignment for Structural Base Pages */
     align-items: center;      
@@ -377,7 +361,7 @@ header {
 .winelands-hero .hero-content, 
 .hero-west-coast .hero-content, 
 .hero-garden-route .hero-content,
-.overberg-hero .hero-content {
+.overberg-hero .hero-content{
     max-width: 580px !important;            
     padding: 35px !important;
     background-color: rgba(0, 0, 0, 0.35) !important; 
@@ -397,17 +381,17 @@ header {
     margin: 0 !important; 
 }
 
-/* --- Hero Image Asset Vectors (Assigned cleanly to canvas layers) --- */
-.hero-home-bg { background-image: linear-gradient(rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 30%), url('images/table-mountain-hero.webp'); background-position: 50% 13%; }
-.hero-about-bg { background-image: linear-gradient(rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 20%), url('images/table-mountain-national-park.webp'); background-position: center 90%; }
-.hero-tours-bg { background-image: linear-gradient(rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 20%), url('images/postberg-flowers.webp'); background-position: center 10%; }
-.hero-contact-bg { background-image: linear-gradient(rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 20%), url('images/chapmans-peak-drive.webp'); background-position: 50% 53%; }
-.city-hero-bg { background-image: linear-gradient(rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 20%), url('images/cape-town-city.webp'); background-position: center 35%; }
-.peninsula-hero-bg { background-image: linear-gradient(rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 20%), url('images/cape-point-walk.webp'); background-position: center 65%; }
-.winelands-hero-bg { background-image: linear-gradient(rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 30%), url('images/delaire-graff-wine-estate.webp'); background-position: center 65%; background-color: #2c3a2e; }
-.hero-west-coast-bg { background-image: linear-gradient(rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 30%), url('images/postberg-nature-reserve-flowers-and-rock-fromations.webp'); background-position: center 70%; }
-.hero-garden-route-bg { background-image: linear-gradient(rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 20%), url('images/ebb-and-flow-restcamp-hike.webp'); background-position: center 50%; }
-.overberg-hero-bg { background-image: linear-gradient(rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 20%), url('images/r44-and-beach.webp'); background-position: center 65%; }
+/* --- Hero Image Asset Vectors --- */
+.hero-home { background-image: linear-gradient(rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 30%), url('images/table-mountain-hero.webp'); background-position: 50% 13%; }
+.hero-about { background-image: linear-gradient(rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 20%), url('images/table-mountain-national-park.webp'); background-position: center 90%; }
+.hero-tours { background-image: linear-gradient(rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 20%), url('images/postberg-flowers.webp'); background-position: center 10%; }
+.hero-contact { background-image: linear-gradient(rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 20%), url('images/chapmans-peak-drive.webp'); background-position: 50% 53%; }
+.city-hero { background-image: linear-gradient(rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 20%), url('images/cape-town-city.webp'); background-position: center 35%; }
+.peninsula-hero { background-image: linear-gradient(rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 20%), url('images/cape-point-walk.webp'); background-position: center 65%; }
+.winelands-hero { background-image: linear-gradient(rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 30%), url('images/delaire-graff-wine-estate.webp'); background-position: center 65%; background-color: #2c3a2e; }
+.hero-west-coast { background-image: linear-gradient(rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 30%), url('images/postberg-nature-reserve-flowers-and-rock-fromations.webp'); background-position: center 70%; }
+.hero-garden-route { background-image: linear-gradient(rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 20%), url('images/ebb-and-flow-restcamp-hike.webp'); background-position: center 50%; }
+.overberg-hero { background-image: linear-gradient(rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 20%), url('images/r44-and-beach.webp'); background-position: center 65%; }
 
 /* --- Profile Split Layouts (Home & About Ecosystem) --- */
 .profile-split-block {
@@ -796,23 +780,6 @@ a.tour-card-link:focus-visible, .btn:focus-visible, .btn-enquire:focus-visible {
     .dropdown.is-open .dropdown-menu { opacity: 1; visibility: visible; display: block; }
     .dropdown-menu a { text-align: center; padding: 12px 20px !important; font-size: 0.95rem !important; color: rgba(255, 255, 255, 0.7) !important; }
 
-    /* --- Mobile Parallax Engine Reset --- */
-    .hero-parallax-wrapper {
-        height: 100vh;
-        min-height: 520px;
-        clip-path: inset(0 0 0 0); 
-    }
-
-    .hero-parallax-bg {
-        background-attachment: scroll !important; 
-        background-size: cover !important;
-        position: fixed;
-        height: 100vh;
-        top: 0;
-        z-index: 1;
-        transform: translateZ(0); 
-    }
-
     /* --- Layout & Vertical Pacing Safety Adapters --- */
     .hero { 
         min-height: 520px; 
@@ -826,7 +793,6 @@ a.tour-card-link:focus-visible, .btn:focus-visible, .btn-enquire:focus-visible {
         text-align: center !important;
         padding-bottom: 32px !important; 
         box-sizing: border-box !important;
-        background: transparent !important;
     }
 
     /* Neutralize asymmetric desktop rules on individual tour pages for a consistent mobile experience */
@@ -839,9 +805,11 @@ a.tour-card-link:focus-visible, .btn:focus-visible, .btn-enquire:focus-visible {
         padding-top: 100px !important;
     }
 
-    /* Targeted mobile cropping configuration variants */
-    .hero-home-bg {
-        background-position: 50% 13% !important; /* Retains precise landscape framing rules */
+    /* Target the base structure variant specifically for parallax asset normalization on iOS */
+    .hero-home {
+        /*background-attachment: scroll !important;*/
+        background-size: auto !important;
+        background-position: 50% 13% !important; /* Matches standard landscape framing precisely */
     }
 
     /* Unified Content Boxes: Forces uniformity across structural pages, sub-tours, and legal pages */
