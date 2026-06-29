@@ -141,6 +141,45 @@ header {
 .logo:hover .logo-img { transform: scale(1.05); }
 .logo:hover .logo-icon { transform: scale(1.1); }
 
+/* Navigation Drawer Base Wrapper */
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+/* Premium Mobile Menu Toggle Trigger */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 2000;
+}
+
+.nav-toggle .hamburger {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    position: relative;
+    transition: background 0.3s ease;
+}
+
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    left: 0;
+    transition: transform 0.3s ease;
+}
+
+.nav-toggle .hamburger::before { top: -8px; }
+.nav-toggle .hamburger::after { bottom: -8px; }
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -242,27 +281,6 @@ header {
 .dropdown-menu a.current {
     color: var(--accent-gold) !important;
     font-weight: 600;
-}
-
-/* Ensure sub-navigation elements wrap elegantly on smaller screens */
-@media (max-width: 768px) {
-    .dropdown-menu {
-        position: static;
-        transform: none !important;
-        background-color: transparent;
-        border: none;
-        box-shadow: none;
-        opacity: 1;
-        visibility: visible;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        padding: 10px 0 0 0;
-    }
-    .dropdown:hover .dropdown-toggle .arrow { transform: none; }
-    .dropdown-toggle .arrow { display: none; }
 }
 
 /* --- Unified Premium Hero Engine --- */
@@ -690,9 +708,80 @@ a.tour-card-link:focus-visible, .btn:focus-visible, .btn-enquire:focus-visible {
 }
 
 @media (max-width: 768px) {
-    header { flex-direction: column; padding: 1.25rem 5%; text-align: center; gap: 1rem; }
-    .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem 1.5rem; }
-    .hero { min-height: 520px; align-items: center !important; justify-content: center !important; text-align: center !important; padding: 0 20px !important; }
+    /* --- Pinned Mobile Header & Branding --- */
+    header { 
+        position: fixed; 
+        background-color: rgba(26, 43, 60, 0.95); 
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 1rem 5%; 
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
+        text-align: left;
+    }
+    
+    .logo-img, .logo-icon { height: 18px; }
+    .logo-icon { height: 26px; }
+
+    /* --- Hamburger Button UI States --- */
+    .nav-toggle { display: block; }
+    
+    .nav-toggle[aria-expanded="true"] .hamburger { background: transparent; }
+    .nav-toggle[aria-expanded="true"] .hamburger::before { transform: translateY(8px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] .hamburger::after { transform: translateY(-8px) rotate(-45deg); }
+
+    /* --- Mobile Full-Screen Overlay Navigation Panel --- */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--dark-blue);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 80px 20px 40px 20px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+        z-index: 1500;
+        overflow-y: auto;
+    }
+
+    .nav-menu.is-active { opacity: 1; visibility: visible; transform: translateY(0); }
+    .nav-links { flex-direction: column; align-items: center; width: 100%; gap: 2rem; wrap: nowrap; }
+    .nav-links a { font-size: 1.25rem; }
+
+    /* --- Touch-Friendly Mobile Accordion Dropdowns --- */
+    .dropdown { width: 100%; text-align: center; }
+    .dropdown-toggle .arrow { display: inline-block; margin-left: 6px; transition: transform 0.3s ease; }
+    .dropdown.is-open .dropdown-toggle .arrow { transform: rotate(180deg); }
+    
+    .dropdown-menu {
+        position: static;
+        opacity: 0;
+        visibility: hidden;
+        display: none;
+        transform: none !important;
+        background-color: rgba(255, 255, 255, 0.03);
+        border: none;
+        border-radius: 6px;
+        box-shadow: none;
+        min-width: 100%;
+        padding: 0;
+        margin-top: 10px;
+    }
+    .dropdown.is-open .dropdown-menu { opacity: 1; visibility: visible; display: block; }
+    .dropdown-menu a { text-align: center; padding: 12px 20px !important; font-size: 0.95rem !important; color: rgba(255, 255, 255, 0.7) !important; }
+
+    /* --- Layout & Vertical Pacing Safety Adapters --- */
+    .hero { min-height: 520px; align-items: center !important; justify-content: center !important; text-align: center !important; padding-top: 80px !important; }
     .hero-content { transform: translateY(-24px) !important; max-width: 100% !important; background-color: rgba(0, 0, 0, 0.55) !important; padding: 25px !important; border-radius: 8px; }
     .profile-split-block { grid-template-columns: 1fr; gap: 0; }
     .profile-split-text { padding: 30px 20px; }
@@ -723,4 +812,3 @@ a.tour-card-link:focus-visible, .btn:focus-visible, .btn-enquire:focus-visible {
     .btn, .tour-card, .btn-enquire, .mosaic-item, .highlights-item-card { transition: none; }
     .btn:hover, .tour-card:hover, .btn-enquire:hover, .mosaic-item:hover, .highlights-item-card:hover { transform: none; }
 }
-

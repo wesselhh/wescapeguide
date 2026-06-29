@@ -17,21 +17,29 @@
             <img src="images/logo-transparent.png" alt="Wes * Cape Guide Logo" class="logo-icon">
             <img src="images/wes-cape-guide-logo.png" alt="Wes | Cape Guide Logo" class="logo-img">
         </a>
-        <ul class="nav-links">
-            <li><a href="about.html" class="current">About</a></li>
-            <li class="dropdown">
-                <a href="tours.html" class="dropdown-toggle">Tours <span class="arrow">&#9662;</span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="tours/city.html">City</a></li>
-                    <li><a href="tours/peninsula.html">Peninsula</a></li>
-                    <li><a href="tours/winelands.html">Winelands</a></li>
-                    <li><a href="tours/west-coast-flowers.html">West Coast & Flowers</a></li>
-                    <li><a href="tours/garden-route-three-day.html">Garden Route</a></li>
-                    <li><a href="tours/overberg-whales.html">Overberg & Whales</a></li>
-                </ul>
-            </li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+        
+        <!-- Mobile Menu Toggle Button -->
+        <button class="nav-toggle" aria-label="Toggle Navigation" aria-expanded="false">
+            <span class="hamburger"></span>
+        </button>
+
+        <nav class="nav-menu">
+            <ul class="nav-links">
+                <li><a href="about.html" class="current">About</a></li>
+                <li class="dropdown">
+                    <a href="tours.html" class="dropdown-toggle">Tours <span class="arrow">&#9662;</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="tours/city.html">City</a></li>
+                        <li><a href="tours/peninsula.html">Peninsula</a></li>
+                        <li><a href="tours/winelands.html">Winelands</a></li>
+                        <li><a href="tours/west-coast-flowers.html">West Coast & Flowers</a></li>
+                        <li><a href="tours/garden-route-three-day.html">Garden Route</a></li>
+                        <li><a href="tours/overberg-whales.html">Overberg & Whales</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <section class="hero hero-about">
@@ -205,5 +213,31 @@
             </div>
         </div>
     </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggleBtn = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+
+        // Toggle Main Mobile Drawer Panel
+        toggleBtn.addEventListener('click', () => {
+            const isOpen = toggleBtn.getAttribute('aria-expanded') === 'true';
+            toggleBtn.setAttribute('aria-expanded', !isOpen);
+            navMenu.classList.toggle('is-active');
+            
+            // Prevent body context from scrolling while full screen navigation view is processing
+            document.body.style.overflow = isOpen ? '' : 'hidden';
+        });
+
+        // Toggle Nested Tours Dropdown Accordion Content on touch-screens
+        dropdownToggle.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault(); // Prevents instant navigational route skipping
+                dropdown.classList.toggle('is-open');
+            }
+        });
+    });
+</script>
 </body>
 </html>
