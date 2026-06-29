@@ -7,6 +7,7 @@
     <title>Wes * Cape Guide - Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Removed the sci-fi 'Orbitron' font to protect the premium editorial vibe -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,36 +18,28 @@
             <img src="images/logo-transparent.png" alt="Wes * Cape Guide Logo" class="logo-icon">
             <img src="images/wes-cape-guide-logo.png" alt="Wes | Cape Guide Logo" class="logo-img">
         </a>
-        
-        <input type="checkbox" id="menu-toggle" class="menu-toggle">
-        <label for="menu-toggle" class="menu-button" aria-label="Toggle Navigation Menu">
-            <span class="burger-line"></span>
-            <span class="burger-line"></span>
-            <span class="burger-line"></span>
-        </label>
-
-        <nav class="nav-container">
-            <ul class="nav-links">
-                <li><a href="about.html">About</a></li>
-                <li class="dropdown">
-                    <a href="tours.html" class="dropdown-toggle">Tours <span class="arrow">&#9662;</span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="tours/city.html">City</a></li>
-                        <li><a href="tours/peninsula.html">Peninsula</a></li>
-                        <li><a href="tours/winelands.html">Winelands</a></li>
-                        <li><a href="tours/west-coast-flowers.html">West Coast & Flowers</a></li>
-                        <li><a href="tours/garden-route-three-day.html">Garden Route</a></li>
-                        <li><a href="tours/overberg-whales.html">Overberg & Whales</a></li>
-                    </ul>
-                </li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li class="dropdown">
+        <a href="tours.html" class="dropdown-toggle">Tours <span class="arrow">&#9662;</span></a>
+        <ul class="dropdown-menu">
+            <li><a href="tours/city.html">City</a></li>
+            <li><a href="tours/peninsula.html">Peninsula</a></li>
+            <li><a href="tours/winelands.html">Winelands</a></li>
+            <li><a href="tours/west-coast-flowers.html">West Coast & Flowers</a></li>
+            <li><a href="tours/garden-route-three-day.html">Garden Route</a></li>
+            <li><a href="tours/overberg-whales.html">Overberg & Whales</a></li>
+        </ul>
+    </li>
+    <li><a href="contact.html">Contact</a></li>
+</ul>
     </header>
     
     <section class="hero hero-home">
         <div class="hero-content">
+            <!-- This should utilize --accent-gold -->
             <span class="hero-eyebrow">Immersive Travel</span>
+            <!-- This will naturally contrast over your hero background image/color -->
             <h1>We escape to the best of the Cape</h1>
             <p>Curated journeys through history and nature.</p>
             <a href="tours.html" class="btn">Explore Tours</a>
@@ -55,8 +48,11 @@
 
     <main class="container">
             
+        <!-- Grouped the heading and profile card into a single semantic section -->
+        <!-- Your CSS can now cleanly color this entire section block or apply alternate background shifts -->
         <section class="profile-introduction-section section-space-bottom">
             <div class="text-content-block">
+                <!-- Eyebrows look fantastic using --accent-gold or --text-muted -->
                 <span class="eyebrow">Meet your guide</span>
                 <h2 class="section-title">Wes</h2>
             </div>
@@ -67,8 +63,10 @@
                         <img src="images/wes-contact.jpeg" alt="Wes - Professional Tour Guide" class="profile-split-image home-profile-crop">
                     </div>
                     <div class="profile-split-text">
+                        <!-- Main text uses --text-main -->
                         <p class="lead-paragraph">More than just a guide, I’m passionate about sharing the magic of The Cape with you and creating meaningful connections with the people and places we encounter along the way.</p>
                         <p class="lead-paragraph">Every landscape has a secret history; my joy is helping you uncover it.</p>
+                        <!-- Interactive links are perfect opportunities to introduce --primary-green or --accent-gold on hover -->
                         <span class="tour-link-text">Discover More &rarr;</span>
                     </div>
                 </div>
@@ -86,6 +84,7 @@
                     <article class="tour-card">
                         <img src="images/cape-town-city.webp" alt="City Tour" class="tour-image">
                         <div class="tour-info">
+                            <!-- Category tags thrive on --primary-green text color or a soft subtle fill background -->
                             <span class="tour-category">City</span>
                             <h3>The Historic Heart</h3>
                             <p>From Table Mountain’s ancient peaks to historic shores and cobblestone streets—discover the soul of Cape Town.</p>
@@ -122,8 +121,10 @@
     
     </main>
 
+    <!-- Testimonials are beautiful when wrapped completely in a --light-gray canvas to break up white spacing -->
     <section class="testimonial-section-v2">
         <div class="testimonial-container-v2">
+            <!-- Merriweather Italic typography works incredibly here for editorial flare -->
             <blockquote class="testimonial-text-v2">
                 "Thank you for your unbelievable guiding. Your flexibility, clear and interesting explanations, your sense of humour and your patience made our experience special."
             </blockquote>
@@ -131,12 +132,14 @@
                 <img src="images/reviewer-midstream.webp" alt="Michelle Clark" class="testimonial-avatar">
                 <div class="testimonial-author-v2">
                     <strong class="author-name-v2">Michelle Clark & The Exchange Team</strong>
+                    <!-- Uses --text-muted to step back and sit beneath the bold name -->
                     <span class="author-location-v2">Midstream College (SA) & Belgium</span>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footers ground your look perfectly using a massive block of --dark-blue -->
     <footer class="editorial-footer">
         <div class="footer-top-row">
             <div class="footer-hero-block">
@@ -146,6 +149,7 @@
                 </a>
                 <p class="editorial-snippet">We escape to the best of The Cape</p>
                 <h2 class="footer-big-prompt">Ready to explore the wonders of <span class="no-wrap">The Cape?</span></h2>
+                <!-- Buttons inside dark footers look remarkable styled with --accent-gold or crisp --white wireframes -->
                 <a href="contact.html" class="editorial-btn">Enquire Now &rarr;</a>
             </div>
             <div class="footer-links-block">
@@ -163,6 +167,7 @@
                     <h4>Connect</h4>
                     <a href="mailto:info@wescapeguide.com">info@wescapeguide.com</a>
                     <a href="tel:+27674068847">+27 (0) 67 406 8847</a>
+                    
                 </div>
             </div>
         </div>
