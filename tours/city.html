@@ -331,12 +331,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-    <section class="peninsula-enquire">
-        <div class="container container-enquire">
-            <p class="peninsula-enquire-text">Your Cape Town adventure begins here. The Mother City awaits you!</p>
-            <a href="../contact.html" class="btn-enquire">Enquire Now &rarr;</a>
+        <!-- NEW MERGED CTA & ESTIMATOR SECTION (CITY TOUR) -->
+<section class="peninsula-enquire">
+    <div class="container container-enquire">
+        
+        <!-- Cost Estimator Block -->
+        <div class="estimator-wrapper">
+            <h3 class="estimator-title">Tour Cost Estimator</h3>
+            <p class="estimator-subtitle">Get a quick cost estimate for your City & Table Mountain Tour. Enter your guest count below.</p>
+            
+            <div class="estimator-controls">
+                <div class="input-group">
+                    <label for="guestCount">Number of Guests (Max 10):</label>
+                    <!-- CHANGED: data-tour is now set to "city" -->
+                    <input type="number" id="guestCount" data-tour="city" min="1" max="10" value="1">
+                </div>
+            </div>
+
+            <div class="estimator-total-box">
+                <h3>
+                    Estimated Total: <span class="highlight-gold"><span id="totalPrice">R 5 365</span></span> <span id="costPerPerson" style="font-size: 0.75em; font-weight: normal; opacity: 0.9;">(R 5 365.00 per person)</span>
+                </h3>
+                <!-- CHANGED: Disclaimer now lists City Tour inclusions -->
+                <p class="disclaimer">*Estimated total including vehicle, guide, bottled spring water onboard, Kirstenbosch (or museum) entry, and Table Mountain Aerial Cableway fast track return tickets. Final quote provided upon enquiry.</p>
+            </div>
         </div>
-    </section>
+        <p class="peninsula-enquire-text">Your Cape Town adventure begins here. The Mother City awaits you!</p>
+        
+        <!-- Dynamic Email & WhatsApp Buttons -->
+        <div class="estimator-buttons" style="display: flex; width: 100%; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; margin-top: 20px;">
+            
+            <!-- Email Button -->
+            <a href="#" id="enquireEmailButton" class="btn-enquire">
+                Enquire via Email &rarr;
+            </a>
+            
+            <!-- WhatsApp Button -->
+            <a href="#" id="enquireWhatsappButton" class="btn-enquire" target="_blank" rel="noopener noreferrer" style="background-color: #25D366; border-color: #25D366; color: #ffffff;">
+                Enquire on WhatsApp &rarr;
+            </a>
+            
+        </div>
+        
+    </div>
+</section>
 
     <footer class="editorial-footer">
         <div class="footer-top-row">
@@ -409,5 +447,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
     });
 </script>
+<script src="../js/estimator.js"></script>
 </body>
 </html>
