@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
             durationDays: 3,
             distanceKm: 1500,
             tollsZar: 300,
-            activityFeeZar: 800, // Conservation Fee + Tsitsikamma Activities
+            activityFeeZar: 2090, // Conservation Fee + Tsitsikamma Activities + Cango Caves + Botlierskop
             guideEntryFees: 0,
             guideLunchPerDay: 300,        // R300 * 3 days = R900
             guideDinnerTotal: 800,        // R800 fixed
